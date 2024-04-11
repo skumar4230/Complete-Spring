@@ -4,6 +4,7 @@ import com.learning.firstJobApp.job.entity.Job;
 import com.learning.firstJobApp.job.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,10 +41,11 @@ public class JobController {
         jobService.createJob(job);
         return "success";
     }
-    @GetMapping("/jobs/{jobId}")
-    public Job getJobById(@PathVariable("jobId") Long jobId) {
 
-        return jobService.getJobById(jobId);
+    @GetMapping("/jobs/{jobId}")
+    public ResponseEntity<Job> getJobById(@PathVariable("jobId") Long jobId) {
+        Job job = jobService.getJobById(jobId);
+        return new ResponseEntity(job, HttpStatus.OK);
     }
 
 
