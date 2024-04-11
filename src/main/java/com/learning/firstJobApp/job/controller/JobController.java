@@ -3,10 +3,8 @@ package com.learning.firstJobApp.job.controller;
 import com.learning.firstJobApp.job.entity.Job;
 import com.learning.firstJobApp.job.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +40,11 @@ public class JobController {
         jobService.createJob(job);
         return "success";
     }
+    @GetMapping("/jobs/{jobId}")
+    public Job getJobById(@PathVariable("jobId") Long jobId) {
+
+        return jobService.getJobById(jobId);
+    }
+
 
 }
