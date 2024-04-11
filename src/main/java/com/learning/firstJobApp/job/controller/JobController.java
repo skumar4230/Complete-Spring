@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/jobs")
 public class JobController {
     //if we are not using database connection
 
@@ -29,24 +30,38 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
-    @GetMapping("/jobs")
-    public List<Job> findAll() {
-        return jobService.findAll();
+   @GetMapping
+    public ResponseEntity<List<Job>> findAll() {
+        return ResponseEntity.ok(jobService.findAll());
 
     }
 
-    @PostMapping("/jobs")
-    public String createJobs(@RequestBody Job job) {
+ @PostMapping
+    public ResponseEntity<String> createJobs(@RequestBody Job job) {
         //will add new job received from body we provided
         jobService.createJob(job);
-        return "success";
+        return new ResponseEntity<>("success",HttpStatus.CREATED);
     }
 
-    @GetMapping("/jobs/{jobId}")
+    @GetMapping("/{jobId}")
     public ResponseEntity<Job> getJobById(@PathVariable("jobId") Long jobId) {
         Job job = jobService.getJobById(jobId);
         return new ResponseEntity(job, HttpStatus.OK);
     }
+    @DeleteMapping("/{jobId}")
+    public ResponseEntity<String> deleteJobById(@PathVariable("jobId")Long jobId) {
+       boolean deleted= jobService.deleteJobById(jobId);
+       if(deleted){
+       return ResponseEntity.ok("job with id " + jobId+" deleted successfully");
+    }
+       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+   }
+   @PutMapping("/{jobId}")
+    public ResponseEntity<Job> updateJob(@PathVariable("jobId")Long jobId,@RequestBody Job job){
+       Job job1 =jobService.updateJobById(jobId, job);
+       return new ResponseEntity<>(job1,HttpStatus.OK);
+   }
 
 
 }
