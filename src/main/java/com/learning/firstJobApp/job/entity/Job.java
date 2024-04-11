@@ -1,4 +1,4 @@
-package com.learning.firstJobApp.job.controller.entity;
+package com.learning.firstJobApp.job.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

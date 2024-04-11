@@ -1,6 +1,6 @@
 package com.learning.firstJobApp.job.controller;
 
-import com.learning.firstJobApp.job.controller.entity.Job;
+import com.learning.firstJobApp.job.entity.Job;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
