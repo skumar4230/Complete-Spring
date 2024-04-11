@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface JobService {
     List<Job> findAll();
-    void createJob();
+    void createJob(Job job);
 }

@@ -1,8 +1,7 @@
 package com.learning.firstJobApp.job.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 //these all annotation are from lombok dependency
 @Data
 @AllArgsConstructor
@@ -14,4 +13,5 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+
 }
