@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/company")
+@RequestMapping(value = "/companies")
 public class CompanyController {
     @Autowired
     private CompanyService companyService;
@@ -36,7 +36,10 @@ public class CompanyController {
     @GetMapping("/{id}")
     public ResponseEntity<Company> getCompanyById(@PathVariable Long id) {
         Company company = companyService.getCompanyById(id);
+        if (company != null){
         return new ResponseEntity<>(company, HttpStatus.OK);
+    }
+    else {return new ResponseEntity<>( HttpStatus.NOT_FOUND);}
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCompanyById(@PathVariable Long id) {

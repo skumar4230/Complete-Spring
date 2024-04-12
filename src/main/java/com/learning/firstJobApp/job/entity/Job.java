@@ -1,5 +1,6 @@
 package com.learning.firstJobApp.job.entity;
 //we are importing from jakarta.persistence from spring 3
+import com.learning.firstJobApp.company.entity.Company;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,5 +19,8 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    @ManyToOne//many jobs to one company
+    private Company company;
 
 }
