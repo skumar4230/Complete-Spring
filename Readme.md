@@ -1,3 +1,5 @@
+# primary key generation for entity classes
+
 The @GeneratedValue annotation in JPA (Java Persistence API)  combined with the GenerationType enum provides different strategies for automatically generating primary key values for your entities. Here's a breakdown of the different types:
 
 GenerationType.IDENTITY:
@@ -33,3 +35,18 @@ IDENTITY	Database generates unique identifiers automatically.
 SEQUENCE	Database sequence object is used for ID generation.
 TABLE	Separate table manages ID generation with next available value.
 AUTO (default)	Persistence provider chooses the best strategy based on the database.
+
+
+# springbot actuator
+dashboard to monitor and manage ur applications
+# features
+built-in endpoint
+ability to view real time metrics
+customizable
+# dependency needed
+ <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+after adding this and starting  we will get Exposing 1 endpoint(s) beneath base path '/actuator
+i.e http://localhost:4230/actuator
