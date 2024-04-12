@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/companies/{companyId}")
+//for this companyId we haev to provide @PathVariable Long companyId to every method signature
 public class ReviewController {
     @Autowired
     private ReviewService service;
@@ -34,8 +35,32 @@ public class ReviewController {
 
     @GetMapping("/reviews/{reviewId}")
     public ResponseEntity<Review> getReview(@PathVariable Long companyId, @PathVariable Long reviewId) {
-        return  new ResponseEntity<>(service.getReview(companyId, reviewId),HttpStatus.OK);
+        return new ResponseEntity<>(service.getReview(companyId, reviewId), HttpStatus.OK);
     }
+
+    @PutMapping("/reviews/{reviewId}")
+    public ResponseEntity<String> updateReview(@PathVariable Long companyId, @PathVariable Long reviewId, @RequestBody Review review) {
+       boolean isReviewUpdated= service.updateReview(companyId, reviewId, review);
+       if (isReviewUpdated) {
+           return new ResponseEntity<>("review updated successfully", HttpStatus.OK);
+       }
+       else{
+           return new ResponseEntity<>("review not updated", HttpStatus.NOT_FOUND);
+
+       }
+    }
+    @DeleteMapping("/reviews/{reviewId}")
+    public ResponseEntity<String> deleteReview(@PathVariable Long companyId, @PathVariable Long reviewId){
+        boolean isReviewDeleted= service.deleteReview(companyId, reviewId);
+        if (isReviewDeleted) {
+            return new ResponseEntity<>("review deleted successfully", HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("review not deleted", HttpStatus.NOT_FOUND);
+
+        }
+    }
+
 }
 
 

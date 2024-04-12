@@ -20,7 +20,7 @@ public class Company {
     private Long id;
     private String name;
     private String description;
-//    @JsonIgnore//helps in reducing stackoverflow error messages
+    @JsonIgnore//helps in reducing stackoverflow error messages
     @OneToMany(mappedBy = "company")//comapny in job entity will reference this
     //one company have many jobs
     private List<Job> jobs;
