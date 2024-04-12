@@ -1,3 +1,9 @@
+# Youtube link
+# https://www.youtube.com/watch?v=BLlEgtp2_i8&t=14556s
+
+# properties helper 
+https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties.actuator
+
 # primary key generation for entity classes
 
 The @GeneratedValue annotation in JPA (Java Persistence API)  combined with the GenerationType enum provides different strategies for automatically generating primary key values for your entities. Here's a breakdown of the different types:
@@ -50,3 +56,5 @@ customizable
     </dependency>
 after adding this and starting  we will get Exposing 1 endpoint(s) beneath base path '/actuator
 i.e http://localhost:4230/actuator
+
+# added in applciation.properties ->management.endpoints.web.exposure.include = *
