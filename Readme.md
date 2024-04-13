@@ -71,3 +71,8 @@ for AWS - ECR(docker)
 for GCP - Artifact Registry
 for Azure - Azure Container registry
 for quay.io 
+# Containerizing our springboot app
+we need docker file to containerize
+# with springboot we don't need docker file or can make use of maven plugin
+ to build docker image we need a command in terminal
+ ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=<IMAGE_NAME>
