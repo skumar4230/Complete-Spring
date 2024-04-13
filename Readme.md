@@ -58,3 +58,16 @@ after adding this and starting  we will get Exposing 1 endpoint(s) beneath base 
 i.e http://localhost:4230/actuator
 
 # added in applciation.properties ->management.endpoints.web.exposure.include = *
+
+# Now we will learn Docker
+ solve conflicts of environment 
+# Containerizing - include the application codes,it's dependencies, and the required environment config in a single unit called container
+# What is Docker 
+open source platform that allows to automate the deployment,scaling and management of app using containerization and is portable
+# Virtual Machine - Vm's act like a separate computer inside your computer
+# Docker is lightweight than VMS see diff in images  within resources folder
+ url for getting docker images -Docker Hub https://hub.docker.com/
+for AWS - ECR(docker)
+for GCP - Artifact Registry
+for Azure - Azure Container registry
+for quay.io 
