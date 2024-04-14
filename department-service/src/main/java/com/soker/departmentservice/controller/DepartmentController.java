@@ -1,5 +1,6 @@
 package com.soker.departmentservice.controller;
 
+import com.soker.departmentservice.client.EmployeeClient;
 import com.soker.departmentservice.model.Department;
 import com.soker.departmentservice.repository.DepartmentRepository;
 import org.slf4j.Logger;
@@ -7,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,9 +18,11 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentRepository repository;
+    @Autowired
+    private EmployeeClient employeeClient;
 
-//    @Autowired
-//    private EmployeeClient employeeClient;
+    //    @Autowired
+    //    private EmployeeClient employeeClient;
 
     @PostMapping
     public Department add(@RequestBody Department department) {
@@ -40,15 +42,15 @@ public class DepartmentController {
         return repository.findById(id);
     }
 
-//    @GetMapping("/with-employees")
-//    public List<Department> findAllWithEmployees() {
-//        LOGGER.info("Department find");
-//        List<Department> departments
-//                = repository.findAll();
-//        departments.forEach(department ->
-//                department.setEmployees(
-//                        employeeClient.findByDepartment(department.getId())));
-//        return  departments;
-//    }
+    //    @GetMapping("/with-employees")
+    //    public List<Department> findAllWithEmployees() {
+    //        LOGGER.info("Department find");
+    //        List<Department> departments
+    //                = repository.findAll();
+    //        departments.forEach(department ->
+    //                department.setEmployees(
+    //                        employeeClient.findByDepartment(department.getId())));
+    //        return  departments;
+    //    }
 
 }
